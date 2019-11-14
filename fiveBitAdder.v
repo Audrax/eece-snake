@@ -13,7 +13,7 @@ FULLADDER add1
     .B({B[0]}),
     .Ci({1'b0}),
     .Co(carryOut),
-    .SUM(SUM[0])
+    .SUM(S[0])
 );
 
 FULLADDER add2
@@ -22,7 +22,7 @@ FULLADDER add2
     .B(B[1]),
     .Ci({carryOut}),
     .Co(carryOut2),
-    .SUM(SUM[1])
+    .SUM(S[1])
 );
 
 FULLADDER add3
@@ -31,7 +31,7 @@ FULLADDER add3
     .B({B[2]}),
     .Ci({carryOut2}),
     .Co(carryOut3),
-    .SUM(SUM[2])
+    .SUM(S[2])
 );
 
 FULLADDER add4
@@ -40,7 +40,7 @@ FULLADDER add4
     .B({B[0]}),
     .Ci({carryOut3}),
     .Co(carryOut4),
-    .SUM(SUM[3])
+    .SUM(S[3])
 );
 
 FULLADDER add5
@@ -49,7 +49,7 @@ FULLADDER add5
     .B({B[0]}),
     .Ci({carryOut4}),
     .Co(),
-    .SUM(SUM[4])
+    .SUM(S[4])
 );
 
 endmodule
