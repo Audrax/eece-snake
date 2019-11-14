@@ -11,7 +11,7 @@ FULLADDER add1
 (
     .A({A[0]}), 
     .B({B[0]}),
-    .Ci({1'b1}),
+    .Ci({1'b0}),
     .Co(carryOut),
     .SUM(SUM[0])
 );
