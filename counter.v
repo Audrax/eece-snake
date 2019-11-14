@@ -11,6 +11,10 @@ module counter
 wire opcode;
 wire [4:0]xnorwire;
 
+wire [4:0] muxout;
+wire [4:0] addout;
+wire [4:0] dffwire;
+
 xnor xnor1(xnorwire[0], max[0], addout[0]);
 xnor xnor2(xnorwire[1], max[1], addout[1]);
 xnor xnor3(xnorwire[2], max[2], addout[2]);
@@ -19,10 +23,6 @@ xnor xnor5(xnorwire[4], max[4], addout[4]);
 nand and1(opcode, xnorwire[0], xnorwire[1], xnorwire[2], xnorwire[3], xnorwire[4]);
 
 // Mux for ALU
-wire [4:0] muxout;
-wire [4:0] addout;
-wire [4:0] dffwire;
-
 mux #(2,1) mux1
 (
     .data_out(muxout[0]),
