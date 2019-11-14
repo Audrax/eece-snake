@@ -1,10 +1,24 @@
 module counter
 (
-    input opcode,
-    input max,
-    output count
+    input [4:0] max,
+    input en,
+    input clock,
+    output [4:0] count
 );
 
+// Logical Comparitor for Max
+
+wire opcode;
+wire [4:0]xnorwire;
+
+xnor xnor1(xnorwire[0], max[0], addout[0]);
+xnor xnor2(xnorwire[1], max[1], addout[1]);
+xnor xnor3(xnorwire[2], max[2], addout[2]);
+xnor xnor4(xnorwire[3], max[3], addout[3]);
+xnor xnor5(xnorwire[4], max[4], addout[4]);
+nand and1(opcode, xnorwire[0], xnorwire[1], xnorwire[2], xnorwire[3], xnorwire[4]);
+
+// Mux for ALU
 wire [4:0] muxout;
 wire [4:0] addout;
 wire [4:0] dffwire;
@@ -44,7 +58,7 @@ mux #(2,1) mux5
     .data_in({dffwire[4],1'b0})
 );
 
-
+//Flip-Flops for Enable
 
 dff_en dff1
 (
@@ -86,11 +100,15 @@ dff_en dff5
     .in_EN(en)
 );
 
+// Logical 5-Bit Adder
+
 fiveBitAdder add1
 (
     .A(01'b1),
     .B(muxout),
     .S(addout)
 );
+
+assign count = muxout;
 
 endmodule
