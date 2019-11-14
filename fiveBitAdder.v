@@ -36,8 +36,8 @@ FULLADDER add3
 
 FULLADDER add4
 (
-    .A({A[0]}), 
-    .B({B[0]}),
+    .A({A[3]}), 
+    .B({B[3]}),
     .Ci({carryOut3}),
     .Co(carryOut4),
     .SUM(S[3])
@@ -45,8 +45,8 @@ FULLADDER add4
 
 FULLADDER add5
 (
-    .A({A[0]}), 
-    .B({B[0]}),
+    .A({A[4]}), 
+    .B({B[4]}),
     .Ci({carryOut4}),
     .Co(),
     .SUM(S[4])
