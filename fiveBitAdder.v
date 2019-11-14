@@ -1,9 +1,9 @@
-module fiveBitAdder(A[4:0], B[4:0], S[4:0])
-{
+module fiveBitAdder
+(
     input [4:0] A,
     input [4:0] B,
     output [4:0] S
-}
+);
 
 wire carryOut, carryOut2, carryOutt3, carryOut4;
 

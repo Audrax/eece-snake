@@ -1,11 +1,11 @@
-module FULLADDER(A, B, Ci, Co, SUM)
-{
+module FULLADDER
+(
     input A,
     input B,
     input Cin,
     output Co,
     output SUM
-}
+);
 
 wire xorwire, andwire, andwire2;
 xor xor1(xorwire, A, B);
