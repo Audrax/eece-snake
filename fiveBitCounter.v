@@ -1,9 +1,17 @@
 module counter
 (
     input [4:0] max,
-    input en,
+    input en_debounce,
     input clock,
     output [4:0] count
+);
+
+// Debouncer
+PushButton_Debouncer PushButton_Debouncer1
+(
+    .clk(clock),
+    .PB(en_debounce),
+    .PB_up(en)
 );
 
 // Logical Comparitor for Max
