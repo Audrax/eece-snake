@@ -5,7 +5,7 @@ module fiveBitAdder
     output [4:0] S
 );
 
-wire carryOut, carryOut2, carryOutt3, carryOut4;
+wire carryOut, carryOut2, carryOut3, carryOut4;
 
 FULLADDER add1
 (
