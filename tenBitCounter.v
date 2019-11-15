@@ -22,12 +22,30 @@ wire [9:0] muxout;
 wire [9:0] addout;
 wire [9:0] dffwire;
 
-tenBitComparitor comparitor1
-(
-    .A(max),
-    .B(dffwire),
-    .F(opcode)
-);
+wire [9:0]xnorwire;
+
+xnor xnor1(xnorwire[0], max[0], dffwire[0]);
+
+xnor xnor2(xnorwire[1], max[1], dffwire[1]);
+
+xnor xnor3(xnorwire[2], max[2], dffwire[2]);
+
+xnor xnor4(xnorwire[3], max[3], dffwire[3]);
+
+xnor xnor5(xnorwire[4], max[4], dffwire[4]);
+
+xnor xnor6(xnorwire[5], max[5], dffwire[5]);
+
+xnor xnor7(xnorwire[6], max[6], dffwire[6]);
+
+xnor xnor8(xnorwire[7], max[7], dffwire[7]);
+
+xnor xnor9(xnorwire[8], max[8], dffwire[8]);
+
+xnor xnor10(xnorwire[9], max[9], dffwire[9]);
+
+nand and1(opcode, xnorwire[0], xnorwire[1], xnorwire[2], xnorwire[3], xnorwire[4], xnorwire[5], xnorwire[6], xnorwire[7], xnorwire[8], xnorwire[9]);
+
 
 // Mux for ALU
 mux #(2,1) mux1
