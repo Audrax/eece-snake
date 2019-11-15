@@ -10,12 +10,8 @@ It is written in Structural Verilog.
 
 To-Do
 --
-Build Counter
-
-Build VGA Driver
-
-Build Gameplay Loop FSM
-
-Build Score Tracker
-
-Build Apple Tracker
+*  Build Counter - __Done__  
+*  Build VGA Driver  
+*  Build Gameplay Loop FSM  
+*  Build Score Tracker  
+*  Build Apple Tracker  
