@@ -11,6 +11,7 @@ It is written in Structural Verilog.
 To-Do
 --
 *  Build Counter - __Done__  
+*  Build Clock Divider  
 *  Build VGA Driver  
 *  Build Gameplay Loop FSM  
 *  Build Score Tracker  
