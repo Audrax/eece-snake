@@ -5,7 +5,7 @@ module fiveBitSubtractor
     output [4:0] D
 );
 
-wire carryOut1, carryOut2, carryOut3, carryout4;
+wire carryOut1, carryOut2, carryOut3, carryOut4;
 wire [4:0] B_Not;
 
 not not1(B_Not, B);
@@ -16,7 +16,7 @@ FULLADDER add1
     .B(B[0]),
     .Co(carryOut1),
     .Ci(0'b1)
-)
+);
 
 FULLADDER add2
 (
@@ -24,7 +24,7 @@ FULLADDER add2
     .B(B[1]),
     .Co(carryOut2),
     .Ci(carryOut1)
-)
+);
 
 FULLADDER add3
 (
@@ -32,7 +32,7 @@ FULLADDER add3
     .B(B[2]),
     .Co(carryOut3),
     .Ci(carryOut2)
-)
+);
 
 FULLADDER add4
 (
@@ -40,7 +40,7 @@ FULLADDER add4
     .B(B[3]),
     .Co(carryOut4),
     .Ci(carryOut3)
-)
+);
 
 FULLADDER add5
 (
@@ -48,4 +48,6 @@ FULLADDER add5
     .B(B[4]),
     .Co(),
     .Ci(carryOut4)
-)
+);
+
+endmodule
