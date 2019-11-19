@@ -7,7 +7,7 @@ module tenBitAdder
 
 wire carryOut, carryOut2, carryOutt3, carryOut4, carryOut5, carryOut6, carryOut7, carryOut8, carryOut9;
 
-FULLADDER add1
+FULLADD add1
 (
     .A({A[0]}), 
     .B({B[0]}),
@@ -16,7 +16,7 @@ FULLADDER add1
     .SUM(S[0])
 );
 
-FULLADDER add2
+FULLADD add2
 (
     .A({A[1]}), 
     .B(B[1]),
@@ -25,7 +25,7 @@ FULLADDER add2
     .SUM(S[1])
 );
 
-FULLADDER add3
+FULLADD add3
 (
     .A({A[2]}), 
     .B({B[2]}),
@@ -34,7 +34,7 @@ FULLADDER add3
     .SUM(S[2])
 );
 
-FULLADDER add4
+FULLADD add4
 (
     .A({A[3]}), 
     .B({B[3]}),
@@ -43,7 +43,7 @@ FULLADDER add4
     .SUM(S[3])
 );
 
-FULLADDER add5
+FULLADD add5
 (
     .A({A[4]}), 
     .B({B[4]}),
@@ -52,7 +52,7 @@ FULLADDER add5
     .SUM(S[4])
 );
 
-FULLADDER add6
+FULLADD add6
 (
     .A({A[5]}), 
     .B(B[5]),
@@ -61,7 +61,7 @@ FULLADDER add6
     .SUM(S[5])
 );
 
-FULLADDER add7
+FULLADD add7
 (
     .A({A[6]}), 
     .B({B[6]}),
@@ -70,7 +70,7 @@ FULLADDER add7
     .SUM(S[6])
 );
 
-FULLADDER add8
+FULLADD add8
 (
     .A({A[7]}), 
     .B({B[7]}),
@@ -79,7 +79,7 @@ FULLADDER add8
     .SUM(S[7])
 );
 
-FULLADDER add9
+FULLADD add9
 (
     .A({A[8]}), 
     .B({B[8]}),
@@ -88,7 +88,7 @@ FULLADDER add9
     .SUM(S[8])
 );
 
-FULLADDER add10
+FULLADD add10
 (
     .A({A[9]}), 
     .B({B[9]}),
