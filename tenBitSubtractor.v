@@ -22,7 +22,7 @@ not not10(B_Not[9], B[9]);
 FULLADDER add1
 (
     .A(A[0]),
-    .B(B[0]),
+    .B(B_Not[0]),
     .Co(carryOut1),
     .Ci(1'b1)
 );
@@ -30,7 +30,7 @@ FULLADDER add1
 FULLADDER add2
 (
     .A(A[1]),
-    .B(B[1]),
+    .B(B_Not[1]),
     .Co(carryOut2),
     .Ci(carryOut1)
 );
@@ -38,7 +38,7 @@ FULLADDER add2
 FULLADDER add3
 (
     .A(A[2]),
-    .B(B[2]),
+    .B(B_Not[2]),
     .Co(carryOut3),
     .Ci(carryOut2)
 );
@@ -46,7 +46,7 @@ FULLADDER add3
 FULLADDER add4
 (
     .A(A[3]),
-    .B(B[3]),
+    .B(B_Not[3]),
     .Co(carryOut4),
     .Ci(carryOut3)
 );
@@ -54,7 +54,7 @@ FULLADDER add4
 FULLADDER add5
 (
     .A(A[4]),
-    .B(B[4]),
+    .B(B_Not[4]),
     .Co(carryOut5),
     .Ci(carryOut4)
 );
@@ -62,7 +62,7 @@ FULLADDER add5
 FULLADDER add6
 (
     .A(A[5]),
-    .B(B[5]),
+    .B(B_Not[5]),
     .Co(carryOut6),
     .Ci(carryOut5)
 );
@@ -70,7 +70,7 @@ FULLADDER add6
 FULLADDER add7
 (
     .A(A[6]),
-    .B(B[6]),
+    .B(B_Not[6]),
     .Co(carryOut7),
     .Ci(carryOut6)
 );
@@ -78,7 +78,7 @@ FULLADDER add7
 FULLADDER add8
 (
     .A(A[7]),
-    .B(B[7]),
+    .B(B_Not[7]),
     .Co(carryOut8),
     .Ci(carryOut7)
 );
@@ -86,7 +86,7 @@ FULLADDER add8
 FULLADDER add9
 (
     .A(A[8]),
-    .B(B[8]),
+    .B(B_Not[8]),
     .Co(carryOut9),
     .Ci(carryOut8)
 );
@@ -94,7 +94,7 @@ FULLADDER add9
 FULLADDER add10
 (
     .A(A[9]),
-    .B(B[9]),
+    .B(B_Not[9]),
     .Co(),
     .Ci(carryOut9)
 );
