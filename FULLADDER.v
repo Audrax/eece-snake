@@ -2,7 +2,7 @@ module FULLADDER
 (
     input A,
     input B,
-    input Cin,
+    input Ci,
     output Co,
     output SUM
 );
