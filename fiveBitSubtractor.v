@@ -23,7 +23,7 @@ FULLADDER add2
     .A(A[1]),
     .B(B[1]),
     .Co(carryOut2),
-    .Ci(0'b1)
+    .Ci(carryOut1)
 )
 
 FULLADDER add3
@@ -31,7 +31,7 @@ FULLADDER add3
     .A(A[2]),
     .B(B[2]),
     .Co(carryOut3),
-    .Ci(0'b1)
+    .Ci(carryOut2)
 )
 
 FULLADDER add4
@@ -39,7 +39,7 @@ FULLADDER add4
     .A(A[3]),
     .B(B[3]),
     .Co(carryOut4),
-    .Ci(0'b1)
+    .Ci(carryOut3)
 )
 
 FULLADDER add5
@@ -47,5 +47,5 @@ FULLADDER add5
     .A(A[4]),
     .B(B[4]),
     .Co(),
-    .Ci(0'b1)
+    .Ci(carryOut4)
 )
