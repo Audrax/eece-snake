@@ -1,4 +1,4 @@
-module FULLADDER
+module FULLADD
 (
     input A,
     input B,
