@@ -1,4 +1,4 @@
-module counter
+module fiveBitCounter
 (
     input [4:0] max,
     input en_debounce,

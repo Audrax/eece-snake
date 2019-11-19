@@ -1,4 +1,4 @@
-module counter
+module tenBitCounter
 (
     input [9:0] max,
     input en_debounce,
