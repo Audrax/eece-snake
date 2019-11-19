@@ -8,7 +8,16 @@ module tenBitSubtractor
 wire carryOut1, carryOut2, carryOut3, carryOut4, carryOut5, carryOut6, carryOut7, carryOut8, carryOut9;
 wire [9:0] B_Not;
 
-not not1(B_Not, B);
+not not1(B_Not[0], B[0]);
+not not2(B_Not[1], B[1]);
+not not3(B_Not[2], B[2]);
+not not4(B_Not[3], B[3]);
+not not5(B_Not[4], B[4]);
+not not6(B_Not[5], B[5]);
+not not7(B_Not[6], B[6]);
+not not8(B_Not[7], B[7]);
+not not9(B_Not[8], B[8]);
+not not10(B_Not[9], B[9]);
 
 FULLADDER add1
 (
