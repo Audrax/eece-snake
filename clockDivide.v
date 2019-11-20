@@ -1,7 +1,7 @@
 module clockDivide
 (
     input clock100,
-    output clock25,
+    output clock25
 );
 
 wire dffwire1, dffwire2;
