@@ -14,7 +14,7 @@ not not3(B_Not[2], B[2]);
 not not4(B_Not[3], B[3]);
 not not5(B_Not[4], B[4]);
 
-FULLADDER add1
+FULLADD add1
 (
     .A(A[0]),
     .B(B_Not[0]),
@@ -23,7 +23,7 @@ FULLADDER add1
     .SUM(D[0])
 );
 
-FULLADDER add2
+FULLADD add2
 (
     .A(A[1]),
     .B(B_Not[1]),
@@ -32,7 +32,7 @@ FULLADDER add2
     .SUM(D[1])
 );
 
-FULLADDER add3
+FULLADD add3
 (
     .A(A[2]),
     .B(B_Not[2]),
@@ -41,7 +41,7 @@ FULLADDER add3
     .SUM(D[2])
 );
 
-FULLADDER add4
+FULLADD add4
 (
     .A(A[3]),
     .B(B_Not[3]),
@@ -50,7 +50,7 @@ FULLADDER add4
     .SUM(D[3])
 );
 
-FULLADDER add5
+FULLADD add5
 (
     .A(A[4]),
     .B(B_Not[4]),

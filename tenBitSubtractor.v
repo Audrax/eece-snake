@@ -19,84 +19,94 @@ not not8(B_Not[7], B[7]);
 not not9(B_Not[8], B[8]);
 not not10(B_Not[9], B[9]);
 
-FULLADDER add1
+FULLADD add1
 (
     .A(A[0]),
     .B(B_Not[0]),
     .Co(carryOut1),
-    .Ci(1'b1)
+    .Ci(1'b1),
+	.SUM(D[0])
 );
 
-FULLADDER add2
+FULLADD add2
 (
     .A(A[1]),
     .B(B_Not[1]),
     .Co(carryOut2),
-    .Ci(carryOut1)
+    .Ci(carryOut1),
+	.SUM(D[1])
 );
 
-FULLADDER add3
+FULLADD add3
 (
     .A(A[2]),
     .B(B_Not[2]),
     .Co(carryOut3),
-    .Ci(carryOut2)
+    .Ci(carryOut2),
+	.SUM(D[2])
 );
 
-FULLADDER add4
+FULLADD add4
 (
     .A(A[3]),
     .B(B_Not[3]),
     .Co(carryOut4),
-    .Ci(carryOut3)
+    .Ci(carryOut3),
+	.SUM(D[3])
 );
 
-FULLADDER add5
+FULLADD add5
 (
     .A(A[4]),
     .B(B_Not[4]),
     .Co(carryOut5),
-    .Ci(carryOut4)
+    .Ci(carryOut4),
+	.SUM(D[4])
 );
 
-FULLADDER add6
+FULLADD add6
 (
     .A(A[5]),
     .B(B_Not[5]),
     .Co(carryOut6),
-    .Ci(carryOut5)
+    .Ci(carryOut5),
+	.SUM(D[5])
 );
 
-FULLADDER add7
+FULLADD add7
 (
     .A(A[6]),
     .B(B_Not[6]),
     .Co(carryOut7),
-    .Ci(carryOut6)
+    .Ci(carryOut6),
+	.SUM(D[6])
 );
 
-FULLADDER add8
+FULLADD add8
 (
     .A(A[7]),
     .B(B_Not[7]),
     .Co(carryOut8),
-    .Ci(carryOut7)
+    .Ci(carryOut7),
+	.SUM(D[7])
 );
 
-FULLADDER add9
+FULLADD add9
 (
     .A(A[8]),
     .B(B_Not[8]),
     .Co(carryOut9),
-    .Ci(carryOut8)
+    .Ci(carryOut8),
+	.SUM(D[8])
 );
 
-FULLADDER add10
+FULLADD add10
 (
     .A(A[9]),
     .B(B_Not[9]),
     .Co(),
-    .Ci(carryOut9)
+    .Ci(carryOut9),
+	.SUM(D[9])
 );
 
 endmodule
