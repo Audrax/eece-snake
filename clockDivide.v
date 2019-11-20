@@ -21,3 +21,5 @@ tenBitSubtractor sub1
     .B({0'b0,0'b0,0'b0,0'b0,0'b0,0'b0,0'b0,0'b0,1'b1,0'b0}),
     .D({subwire})
 );
+
+endmodule
