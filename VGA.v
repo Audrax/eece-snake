@@ -2,13 +2,13 @@ module VGA
 (
     output HS,
     output VS,
-    output R,
-    output G,
-    output B,
+    output [3:0] R,
+    output [3:0] G,
+    output [3:0] B,
     input clk
 );
 
-wire clk25, hCountWire, vCountWire
+wire clk25, hCountWire, vCountWire, hSyncWire;
 
 clockDivide divide
 (
@@ -28,13 +28,13 @@ synchro hSync
 (
     .D(hCountWire),
     .clock(clk25),
-    .Q(HS)
+    .Q(hSyncWire)
 );
 
 tenBitCounter vCount
 (
     .max(10'b1010000000),
-    .en_debounce(clk25),
+    .en_debounce(hSyncWire),
     .clock(clk25),
     .count(vCountWire)
 );
@@ -45,5 +45,7 @@ synchro vSync
     .clock(clk25),
     .Q(VS)
 );
+
+assign HS = hSyncWire;
 
 endmodule
