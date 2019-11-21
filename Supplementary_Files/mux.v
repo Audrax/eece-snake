@@ -6,7 +6,7 @@ module mux
     output data_out
     );
 reg [NUM_INPUTS:0] D;
-always @ (D)
+always @ (D, data_in)
     begin
         D <= data_in;
     end
