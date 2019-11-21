@@ -9,6 +9,7 @@ module VGA
     input clk
 );
 
+// Temporary switch to drive the colors on the display
 assign tempSW = R[0];
 assign tempSW = R[1];
 assign tempSW = R[2];
@@ -24,12 +25,14 @@ assign tempSW = B[3];
 
 wire clk25, hCountWire, vCountWire, hSyncWire;
 
+// Clock Divider
 clockDivide divide
 (
     .clock100(clk),
     .clock25(clk25)
 );
 
+// Horizontal Counter driven by clock
 tenBitCounter hCount
 (
     .max(10'b0111100000),
@@ -38,6 +41,7 @@ tenBitCounter hCount
     .count(hCountWire)
 );
 
+// Synchronizer for horizontal count
 synchro hSync
 (
     .D(hCountWire),
@@ -45,6 +49,8 @@ synchro hSync
     .Q(hSyncWire)
 );
 
+
+// Vertical counter driven by horizontal sync
 tenBitCounter vCount
 (
     .max(10'b1010000000),
@@ -53,6 +59,7 @@ tenBitCounter vCount
     .count(vCountWire)
 );
 
+// Synchronizer for vertical count
 synchro vSync
 (
     .D(vCountWire),
