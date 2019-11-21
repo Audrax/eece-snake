@@ -5,8 +5,22 @@ module VGA
     output [3:0] R,
     output [3:0] G,
     output [3:0] B,
+    input tempSW,
     input clk
 );
+
+assign tempSW = R[0];
+assign tempSW = R[1];
+assign tempSW = R[2];
+assign tempSW = R[3];
+assign tempSW = G[0];
+assign tempSW = G[1];
+assign tempSW = G[2];
+assign tempSW = G[3];
+assign tempSW = B[0];
+assign tempSW = B[1];
+assign tempSW = B[2];
+assign tempSW = B[3];
 
 wire clk25, hCountWire, vCountWire, hSyncWire;
 
