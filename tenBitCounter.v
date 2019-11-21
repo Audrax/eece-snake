@@ -11,6 +11,8 @@ PushButton_Debouncer PushButton_Debouncer1
 (
     .clk(clock),
     .PB(en_debounce),
+    .PB_state(),
+	.PB_down(),
     .PB_up(en)
 );
 
@@ -210,5 +212,6 @@ tenBitAdder add1
 );
 
 assign count = muxout;
+
 
 endmodule

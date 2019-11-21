@@ -8,14 +8,12 @@ module fiveBitSubtractor
 wire carryOut1, carryOut2, carryOut3, carryOut4;
 wire [4:0] B_Not;
 
-// Invert the B input
 not not1(B_Not[0], B[0]);
 not not2(B_Not[1], B[1]);
 not not3(B_Not[2], B[2]);
 not not4(B_Not[3], B[3]);
 not not5(B_Not[4], B[4]);
 
-// Set LSB carry in to 1
 FULLADD add1
 (
     .A(A[0]),

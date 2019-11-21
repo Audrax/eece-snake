@@ -7,10 +7,8 @@ module clockDivide
 wire dffwire1, dffwire2;
 wire notwire1, notwire2;
 
-// Invert output of flip flop
 not not1(notwire1, dffwire1);
 
-// Feed inverted output back into flip flop
 dff_en dff1
 (
     .in_D(notwire1),
@@ -19,7 +17,6 @@ dff_en dff1
     .data_out(dffwire1)
 );
 
-// Repeat
 not not2(notwire2, dffwire2);
 
 dff_en dff2
