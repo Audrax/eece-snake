@@ -12,18 +12,18 @@ wire dffwire;
 
 dff_en dff1
 (
-    .D(D),
-    .EN(en),
+    .in_D(D),
+    .in_EN(en),
     .data_out(dffwire),
-    .CLK(clock)
+    .in_CLK(clock)
 );
 
 dff_en dff2
 (
-    .D(dffwire),
-    .EN(en),
+    .in_D(dffwire),
+    .in_EN(en),
     .data_out(Q),
-    .CLK(clock)
+    .in_CLK(clock)
 );
 
 endmodule
