@@ -26,7 +26,8 @@ buf BUFB1(B[1], tempSwB);
 buf BUFB2(B[2], tempSwB);
 buf BUFB3(B[3], tempSwB);
 
-wire clk25, hCountWire, vCountWire, hSyncWire, hSetWire, hResetWire, vSetWire, vResetWire;
+wire [19:0] hCountWire, vCountWire;
+wire clk25, hSyncWire, hSetWire, hResetWire, vSetWire, vResetWire;
 
 // Clock Divider for Pixel Clock
 
@@ -38,7 +39,7 @@ clockDivide divide
 
 // Horizontal Counter + Sync
 
-tenBitCounter hCount
+twentyBitCounter hCount
 (
     .max(20'b00000000001100100000), //800
     .en(1'b1),
@@ -46,18 +47,18 @@ tenBitCounter hCount
     .count(hCountWire)
 );
 
-tenBitComparitor hSet
+twentyBitComparitor hSet
 (
     .A(hCountWire),
     .B(20'b00000000000000000000), // Zero Detect
-    .F(hSetWire)
+    .F(hResetWire)
 );
 
-tenBitComparitor hReset
+twentyBitComparitor hReset
 (
     .A(hCountWire),
     .B(20'b00000000000001100000), // 3.84us (96 clks) Detect
-    .F(hResetWire)
+    .F(hSetWire)
 );
 
 sr_latch hLatch
@@ -70,7 +71,7 @@ sr_latch hLatch
 
 // Vertical Counter + Sync
 
-tenBitCounter vCount
+twentyBitCounter vCount
 (
     .max(20'b01100101110000100000), //416,800
     .en(hSyncWire),
@@ -78,18 +79,18 @@ tenBitCounter vCount
     .count(vCountWire)
 );
 
-tenBitComparitor vSet
+twentyBitComparitor vSet
 (
     .A(vCountWire),
     .B(20'b00000000000000000000), // Zero Detect
-    .F(vSetWire)
+    .F(vResetWire)
 );
 
-tenBitComparitor vReset
+twentyBitComparitor vReset
 (
     .A(vCountWire),
     .B(20'b00000000011001000000), // 64us (1600 clks) Detect
-    .F(vResetWire)
+    .F(vSetWire)
 );
 
 sr_latch vLatch
