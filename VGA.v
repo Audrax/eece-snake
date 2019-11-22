@@ -40,8 +40,8 @@ clockDivide divide
 
 tenBitCounter hCount
 (
-    .max(10'b0111100000), //480
-    .en(clk25),
+    .max(20'b00000000001100100000), //800
+    .en(1'b1),
     .clock(clk25),
     .count(hCountWire)
 );
@@ -49,14 +49,14 @@ tenBitCounter hCount
 tenBitComparitor hSet
 (
     .A(hCountWire),
-    .B(10'b0000000000), // Zero Detect
+    .B(20'b00000000000000000000), // Zero Detect
     .F(hSetWire)
 );
 
 tenBitComparitor hReset
 (
     .A(hCountWire),
-    .B(10'b0001100000), // 3.84us (96 clks) Detect
+    .B(20'b00000000000001100000), // 3.84us (96 clks) Detect
     .F(hResetWire)
 );
 
@@ -72,7 +72,7 @@ sr_latch hLatch
 
 tenBitCounter vCount
 (
-    .max(10'b1010000000), //640
+    .max(20'b01100101110000100000), //416,800
     .en(hSyncWire),
     .clock(clk25),
     .count(vCountWire)
@@ -81,14 +81,14 @@ tenBitCounter vCount
 tenBitComparitor vSet
 (
     .A(vCountWire),
-    .B(10'b0000000000), // Zero Detect
+    .B(20'b00000000000000000000), // Zero Detect
     .F(vSetWire)
 );
 
 tenBitComparitor vReset
 (
     .A(vCountWire),
-    .B(10'b1100100000), // 32us (800 clks) Detect
+    .B(20'b00000000011001000000), // 64us (1600 clks) Detect
     .F(vResetWire)
 );
 
