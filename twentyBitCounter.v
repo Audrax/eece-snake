@@ -1,9 +1,9 @@
-module tenBitCounter
+module twentyBitCounter
 (
-    input [9:0] max,
+    input [19:0] max,
     input en,
     input clock,
-    output [9:0] count
+    output [19:0] count
 );
 
 wire en_pulse;
@@ -20,9 +20,9 @@ pulser pulse1
 
 wire opcode;
 
-wire [9:0] muxout;
-wire [9:0] addout;
-wire [9:0] dffwire;
+wire [19:0] muxout;
+wire [19:0] addout;
+wire [19:0] dffwire;
 
 twentyBitComparitor comp1
 (
@@ -127,9 +127,79 @@ mux #(2,1) mux10
     .data_in({dffwire[9],1'b0})
 );
 
+mux #(2,1) mux11
+(
+    .data_out(muxout[10]),
+    .select_in({opcode}),
+    .data_in({dffwire[10],1'b0})
+);
+
+mux #(2,1) mux12
+(
+    .data_out(muxout[11]),
+    .select_in({opcode}),
+    .data_in({dffwire[11],1'b0})
+);
+
+mux #(2,1) mux13
+(
+    .data_out(muxout[12]),
+    .select_in({opcode}),
+    .data_in({dffwire[12],1'b0})
+);
+
+mux #(2,1) mux14
+(
+    .data_out(muxout[13]),
+    .select_in({opcode}),
+    .data_in({dffwire[13],1'b0})
+);
+
+mux #(2,1) mux15
+(
+    .data_out(muxout[14]),
+    .select_in({opcode}),
+    .data_in({dffwire[14],1'b0})
+);
+
+mux #(2,1) mux16
+(
+    .data_out(muxout[15]),
+    .select_in({opcode}),
+    .data_in({dffwire[15],1'b0})
+);
+
+mux #(2,1) mux17
+(
+    .data_out(muxout[16]),
+    .select_in({opcode}),
+    .data_in({dffwire[16],1'b0})
+);
+
+mux #(2,1) mux18
+(
+    .data_out(muxout[17]),
+    .select_in({opcode}),
+    .data_in({dffwire[17],1'b0})
+);
+
+mux #(2,1) mux19
+(
+    .data_out(muxout[18]),
+    .select_in({opcode}),
+    .data_in({dffwire[18],1'b0})
+);
+
+mux #(2,1) mux20
+(
+    .data_out(muxout[19]),
+    .select_in({opcode}),
+    .data_in({dffwire[19],1'b0})
+);
+
 //Flip-Flops for Enable
 
-register #(10) reg1
+register #(20) reg1
 (
     .clk(clock),
     .load(en_pulse),
@@ -219,7 +289,7 @@ dff_en dff10
 
 // Logical 10-Bit Adder
 
-tenBitAdder add1
+twentyBitAdder add1
 (
     .A(1'b1),
     .B(muxout),
