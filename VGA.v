@@ -51,14 +51,14 @@ twentyBitComparitor hSet
 (
     .A(hCountWire),
     .B(20'b00000000000000000000), // Zero Detect
-    .F(hResetWire)
+    .F(hSetWire)
 );
 
 twentyBitComparitor hReset
 (
     .A(hCountWire),
     .B(20'b00000000000001100000), // 3.84us (96 clks) Detect
-    .F(hSetWire)
+    .F(hResetWire)
 );
 
 sr_latch hLatch
@@ -83,14 +83,14 @@ twentyBitComparitor vSet
 (
     .A(vCountWire),
     .B(20'b00000000000000000000), // Zero Detect
-    .F(vResetWire)
+    .F(vSetWire)
 );
 
 twentyBitComparitor vReset
 (
     .A(vCountWire),
     .B(20'b00000000011001000000), // 64us (1600 clks) Detect
-    .F(vSetWire)
+    .F(vResetWire)
 );
 
 sr_latch vLatch

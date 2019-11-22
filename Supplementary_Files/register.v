@@ -13,14 +13,16 @@
 //        modify the data size accepted by the component.
 //////////////////////////////////////////////////////////////////////////////////
 
-module register(
+module register
+    #(parameter DataSize = 2)
+    (
     clk,
     load,
     d,
     q
     );
 
-    parameter DataSize = 2; // ** Set this to required data size **
+    //parameter DataSize = 2; // ** Set this to required data size **
 
     input clk,load;
     input  [DataSize-1:0] d;
