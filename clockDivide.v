@@ -27,6 +27,6 @@ dff_en dff2
     .data_out(dffwire2)
 );
 
-assign clock25 = dffwire2;
+buf bufclk(dffwire2, clock25);
 
 endmodule

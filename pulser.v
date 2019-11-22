@@ -1,7 +1,7 @@
 module pulser
 (
     input D,
-    input clock
+    input clock,
     output Q
 );
 
@@ -11,10 +11,10 @@ nor nor1(dWire, D, qWire);
 
 dff_en dff1
 (
-    in_D(dWire),
-    in_CLK(clock),
-    in_en(1'b1),
-    data_out(qWire)
+    .in_D(dWire),
+    .in_CLK(clock),
+    .in_EN(1'b1),
+    .data_out(qWire)
 );
 
 buf buf1(Q, qWire);
