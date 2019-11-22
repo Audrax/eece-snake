@@ -9,6 +9,8 @@ module VGA
     input clk
 );
 
+// Temp Switches to drive RGB Pins
+
 buf BUFR0(R[0], tempSwR);
 buf BUFR1(R[1], tempSwR);
 buf BUFR2(R[2], tempSwR);
@@ -24,7 +26,9 @@ buf BUFB1(B[1], tempSwB);
 buf BUFB2(B[2], tempSwB);
 buf BUFB3(B[3], tempSwB);
 
-wire clk25, hCountWire, vCountWire, hSyncWire;
+wire clk25, hCountWire, vCountWire, hSyncWire, hSetWire, hResetWire, vSetWire, vResetWire;
+
+// Clock Divider for Pixel Clock
 
 clockDivide divide
 (
@@ -32,27 +36,69 @@ clockDivide divide
     .clock25(clk25)
 );
 
+// Horizontal Counter + Sync
+
 tenBitCounter hCount
 (
     .max(10'b0111100000), //480
-    .en_debounce(clk25),
+    .en(clk25),
     .clock(clk25),
     .count(hCountWire)
 );
 
+tenBitComparitor hSet
+(
+    .A(hCountWire),
+    .B(10'b0000000000), // Zero Detect
+    .F(hSetWire)
+);
 
+tenBitComparitor hReset
+(
+    .A(hCountWire),
+    .B(10'b0001100000), // 3.84us (96 clks) Detect
+    .F(hResetWire)
+);
+
+sr_latch hLatch
+(
+    .S(hSetWire),
+    .R(hResetWire),
+    .Q(hSyncWire)
+);
+
+// Vertical Counter + Sync
 
 tenBitCounter vCount
 (
     .max(10'b1010000000), //640
-    .en_debounce(hSyncWire),
+    .en(hSyncWire),
     .clock(clk25),
     .count(vCountWire)
 );
 
+tenBitComparitor vSet
+(
+    .A(vCountWire),
+    .B(10'b0000000000), // Zero Detect
+    .F(vSetWire)
+);
 
+tenBitComparitor vReset
+(
+    .A(vCountWire),
+    .B(10'b1100100000), // 32us (800 clks) Detect
+    .F(vResetWire)
+);
 
-assign HS = hSyncWire;
+sr_latch vLatch
+(
+    .S(vSetWire),
+    .R(vResetWire),
+    .Q(VS)
+);
+
+buf bufHS(HS, hSyncWire);
 
 endmodule
 
