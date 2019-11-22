@@ -1,19 +1,19 @@
 module tenBitCounter
 (
     input [9:0] max,
-    input en_debounce,
+    input en,
     input clock,
     output [9:0] count
 );
 
-// Debouncer
-PushButton_Debouncer PushButton_Debouncer1
+wire en_pulse;
+
+// Pulser for Input
+pulser pulse1
 (
-    .clk(clock),
-    .PB(en_debounce),
-    .PB_state(),
-	.PB_down(),
-    .PB_up(en)
+    .D(en),
+    .clock(clock),
+    .Q(en_pulse)
 );
 
 // Logical Comparitor for Max
@@ -24,7 +24,14 @@ wire [9:0] muxout;
 wire [9:0] addout;
 wire [9:0] dffwire;
 
-wire [9:0]xnorwire;
+tenBitComparitor comp1
+(
+    .A(max),
+    .B(dffwire),
+    .F(opcode)
+);
+
+/*wire [9:0]xnorwire;
 
 xnor xnor1(xnorwire[0], max[0], dffwire[0]);
 
@@ -47,7 +54,7 @@ xnor xnor9(xnorwire[8], max[8], dffwire[8]);
 xnor xnor10(xnorwire[9], max[9], dffwire[9]);
 
 nand and1(opcode, xnorwire[0], xnorwire[1], xnorwire[2], xnorwire[3], xnorwire[4], xnorwire[5], xnorwire[6], xnorwire[7], xnorwire[8], xnorwire[9]);
-
+*/
 
 // Mux for ALU
 mux #(2,1) mux1
@@ -122,12 +129,20 @@ mux #(2,1) mux10
 
 //Flip-Flops for Enable
 
-dff_en dff1
+register #(10) reg1
+(
+    .clk(clock),
+    .load(en_pulse),
+    .d(addout),
+    .q(dffwire)
+);
+
+/*dff_en dff1
 (
     .data_out(dffwire[0]),
     .in_D(addout[0]),
     .in_CLK(clock),
-    .in_EN(en)
+    .in_EN(en_pulse)
 );
 
 dff_en dff2
@@ -135,7 +150,7 @@ dff_en dff2
     .data_out(dffwire[1]),
     .in_D(addout[1]),
     .in_CLK(clock),
-    .in_EN(en)
+    .in_EN(en_pulse)
 );
 
 dff_en dff3
@@ -143,7 +158,7 @@ dff_en dff3
     .data_out(dffwire[2]),
     .in_D(addout[2]),
     .in_CLK(clock),
-    .in_EN(en)
+    .in_EN(en_pulse)
 );
 
 dff_en dff4
@@ -151,7 +166,7 @@ dff_en dff4
     .data_out(dffwire[3]),
     .in_D(addout[3]),
     .in_CLK(clock),
-    .in_EN(en)
+    .in_EN(en_pulse)
 );
 
 dff_en dff5
@@ -159,7 +174,7 @@ dff_en dff5
     .data_out(dffwire[4]),
     .in_D(addout[4]),
     .in_CLK(clock),
-    .in_EN(en)
+    .in_EN(en_pulse)
 );
 
 dff_en dff6
@@ -167,7 +182,7 @@ dff_en dff6
     .data_out(dffwire[5]),
     .in_D(addout[5]),
     .in_CLK(clock),
-    .in_EN(en)
+    .in_EN(en_pulse)
 );
 
 dff_en dff7
@@ -175,7 +190,7 @@ dff_en dff7
     .data_out(dffwire[6]),
     .in_D(addout[6]),
     .in_CLK(clock),
-    .in_EN(en)
+    .in_EN(en_pulse)
 );
 
 dff_en dff8
@@ -183,7 +198,7 @@ dff_en dff8
     .data_out(dffwire[7]),
     .in_D(addout[7]),
     .in_CLK(clock),
-    .in_EN(en)
+    .in_EN(en_pulse)
 );
 
 dff_en dff9
@@ -191,7 +206,7 @@ dff_en dff9
     .data_out(dffwire[8]),
     .in_D(addout[8]),
     .in_CLK(clock),
-    .in_EN(en)
+    .in_EN(en_pulse)
 );
 
 dff_en dff10
@@ -199,8 +214,8 @@ dff_en dff10
     .data_out(dffwire[9]),
     .in_D(addout[9]),
     .in_CLK(clock),
-    .in_EN(en)
-);
+    .in_EN(en_pulse)
+); */
 
 // Logical 10-Bit Adder
 
