@@ -64,7 +64,8 @@ sr_latch hLatch
 (
     .S(hSetWire),
     .R(hResetWire),
-    .Q(hSyncWire)
+    .Q(hSyncWire),
+    .Q_Not()
 );
 
 // Vertical Counter + Sync
@@ -95,7 +96,8 @@ sr_latch vLatch
 (
     .S(vSetWire),
     .R(vResetWire),
-    .Q(VS)
+    .Q(VS),
+    .Q_Not()
 );
 
 buf bufHS(HS, hSyncWire);
