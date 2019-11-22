@@ -206,7 +206,7 @@ dff_en dff10
 
 tenBitAdder add1
 (
-    .A(01'b1),
+    .A(1'b1),
     .B(muxout),
     .S(addout)
 );
