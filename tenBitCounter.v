@@ -24,7 +24,7 @@ wire [9:0] muxout;
 wire [9:0] addout;
 wire [9:0] dffwire;
 
-tenBitComparitor comp1
+twentyBitComparitor comp1
 (
     .A(max),
     .B(dffwire),
