@@ -47,6 +47,6 @@ xnor xnor19(xnorwire[18], A[18], B[18]);
 
 xnor xnor20(xnorwire[19], A[19], B[19]);
 
-nand and1(F, xnorwire[0], xnorwire[1], xnorwire[2], xnorwire[3], xnorwire[4], xnorwire[5], xnorwire[6], xnorwire[7], xnorwire[8], xnorwire[9],xnorwire[10], xnorwire[11], xnorwire[12], xnorwire[13], xnorwire[14], xnorwire[15], xnorwire[16], xnorwire[17], xnorwire[18], xnorwire[19]);
+and and1(F, xnorwire[0], xnorwire[1], xnorwire[2], xnorwire[3], xnorwire[4], xnorwire[5], xnorwire[6], xnorwire[7], xnorwire[8], xnorwire[9],xnorwire[10], xnorwire[11], xnorwire[12], xnorwire[13], xnorwire[14], xnorwire[15], xnorwire[16], xnorwire[17], xnorwire[18], xnorwire[19]);
 
 endmodule
