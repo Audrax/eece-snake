@@ -42,7 +42,7 @@ clockDivide divide
 twentyBitCounter hCount
 (
     .max(20'b00000000001100100000), //800
-    .en(1'b1),
+    .en(clk25),
     .clock(clk25),
     .count(hCountWire)
 );
