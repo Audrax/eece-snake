@@ -94,7 +94,7 @@ FULLADD add10
     .A({A[9]}), 
     .B({B[9]}),
     .Ci({carryOut9}),
-    .Co(),
+    .Co(carryOut10),
     .SUM(S[9])
 );
 
@@ -102,8 +102,8 @@ FULLADD add11
 (
     .A({A[10]}), 
     .B({B[10]}),
-    .Ci({1'b0}),
-    .Co(carryOut10),
+    .Ci({carryOut10}),
+    .Co(carryOut11),
     .SUM(S[10])
 );
 
@@ -111,7 +111,7 @@ FULLADD add12
 (
     .A({A[11]}), 
     .B(B[11]),
-    .Ci({carryOut10}),
+    .Ci({carryOut11}),
     .Co(carryOut12),
     .SUM(S[11])
 );
