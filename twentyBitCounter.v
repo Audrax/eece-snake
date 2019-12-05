@@ -1,20 +1,20 @@
 module twentyBitCounter
 (
     input [19:0] max,
-    input en,
+    input en_pulse,
     input clock,
     output [19:0] count
 );
 
-wire en_pulse;
+//wire en_pulse;
 
 // Pulser for Input
-pulser pulse1
+/*pulser pulse1
 (
     .D(en),
     .clock(clock),
     .Q(en_pulse)
-);
+);*/
 
 // Logical Comparitor for Max
 
