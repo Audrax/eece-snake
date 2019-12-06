@@ -1,24 +1,24 @@
 module twentyBitCounter
 (
     input [19:0] max,
-    input en_pulse,
+    input en,
     input clock,
     output [19:0] count
 );
 
-//wire en_pulse;
+wire en_pulse;
 
 // Pulser for Input
-/*pulser pulse1
+pulser pulse1
 (
     .D(en),
     .clock(clock),
     .Q(en_pulse)
-);*/
+);
 
 // Logical Comparitor for Max
 
-wire opcode;
+wire opcode_not, opcode;
 
 wire [19:0] muxout;
 wire [19:0] addout;
@@ -28,8 +28,10 @@ twentyBitComparitor comp1
 (
     .A(max),
     .B(dffwire),
-    .F(opcode)
+    .F(opcode_not)
 );
+
+not not1(opcode, opcode_not);
 
 /*wire [9:0]xnorwire;
 
