@@ -6,15 +6,15 @@ module twentyBitCounter
     output [19:0] count
 );
 
-wire en_pulse;
+//wire en_pulse;
 
 // Pulser for Input
-pulser pulse1
+/*pulser pulse1
 (
     .D(en),
     .clock(clock),
     .Q(en_pulse)
-);
+);*/
 
 // Logical Comparitor for Max
 
@@ -204,7 +204,7 @@ mux #(2,1) mux20
 register #(20) reg1
 (
     .clk(clock),
-    .load(en_pulse),
+    .load(en),
     .d(addout),
     .q(dffwire)
 );
