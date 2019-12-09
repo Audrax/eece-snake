@@ -3,7 +3,7 @@ module snakeMoveLogic
     input clock, wallsOn, Up, Down, Left, Right,
     input [19:0] bitNum,
     output gameOver,
-    output [19:0] X, Y
+    output [19:0] X, Y, headX, headY
 );
 
 wire headChkWire;
@@ -130,7 +130,7 @@ busMux #(20) muxHeadX
     .i0(curBodyXPos), // If currently moving the body, output x body val
     .i1(curHeadXPos), // Otherwise output x head val
     .sel(headChkWire),
-    .data_out(xWire)
+    .q(xWire)
 );
 
 busMux #(20) muxHeadY
@@ -138,7 +138,7 @@ busMux #(20) muxHeadY
     .i0(curBodyXPos),
     .i1(curHeadYPos),
     .sel(headChkWire),
-    .data_out(yWire)
+    .q(yWire)
 );
 
 // Store the current x and y values into a register
@@ -160,6 +160,8 @@ register #(20) prevY
 
 buf bufx(X, xWire);
 buf bufy(Y, yWire);
+buf bufHeadX(headX, curHeadXPos);
+buf bufHeadY(headY, curHeadYPos);
 
 // Collision Checking
 collisionDetect detect1
