@@ -119,8 +119,8 @@ twentyBitAdder addRight
 );
 
 // Assign previous x and y values to current part of body
-buf curX(curBodyXPos, prevXPos);
-buf curY(curBodyYPos, prevYPos);
+assign curBodyXPos = prevXPos;
+assign curBodyYPos = prevYPos;
 
 wire [19:0] xWire, yWire;
 
@@ -158,10 +158,10 @@ register #(20) prevY
     .q(prevYPos)
 );
 
-buf bufx(X, xWire);
-buf bufy(Y, yWire);
-buf bufHeadX(headX, curHeadXPos);
-buf bufHeadY(headY, curHeadYPos);
+assign X = xWire;
+assign Y = yWire;
+assign headX = curHeadXPos;
+assign headY = curHeadYPos;
 
 // Collision Checking
 collisionDetect detect1
