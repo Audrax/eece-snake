@@ -161,4 +161,15 @@ register #(20) prevY
 buf bufx(X, xWire);
 buf bufy(Y, yWire);
 
+// Collision Checking
+collisionDetect detect1
+(
+    .headX(curHeadXPos),
+    .headY(curHeadYPos),
+    .bodyX(curBodyXPos),
+    .bodyY(curBodyYPos),
+    .walls(wallsOn),
+    .gameOver(gameOver)
+);
+
 endmodule
