@@ -70,8 +70,19 @@ twentyBitComparitor vgaY
 wire draw;
 
 and and2(draw, xOut, yOut);
-assign Red = draw;
-assign Green = draw;
-assign Blue = draw;
+buf red1(Red[0], draw);
+buf red2(Red[1], draw);
+buf red3(Red[2], draw);
+buf red4(Red[3], draw);
+
+buf gr1(Green[0], draw);
+buf gr2(Green[1], draw);
+buf gr3(Green[2], draw);
+buf gr4(Green[3], draw);
+
+buf blu1(Blue[0], draw);
+buf blu2(Blue[1], draw);
+buf blu3(Blue[2], draw);
+buf blu4(Blue[3], draw);
 
 endmodule
