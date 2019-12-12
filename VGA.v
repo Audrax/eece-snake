@@ -4,29 +4,29 @@ module VGA
     output VS,
     output hCount,
     output vCount,
-    /*output [3:0] R,
+    output [3:0] R,
     output [3:0] G,
     output [3:0] B,
-    input tempSwR, tempSwG, tempSwB,*/
+    //input tempSwR, tempSwG, tempSwB,
     input clk
 );
 
 // Temp Switches to drive RGB Pins
+/*wire color;
+and BUFR0(R[0], tempSwR, color);
+and BUFR1(R[1], tempSwR, color);
+and BUFR2(R[2], tempSwR, color);
+and BUFR3(R[3], tempSwR, color);
 
-/*and BUFR0(R[0], tempSwR, hSyncWire, vSyncWire);
-and BUFR1(R[1], tempSwR, hSyncWire, vSyncWire);
-and BUFR2(R[2], tempSwR, hSyncWire, vSyncWire);
-and BUFR3(R[3], tempSwR, hSyncWire, vSyncWire);
+and BUFG0(G[0], tempSwG, color);
+and BUFG1(G[1], tempSwG, color);
+and BUFG2(G[2], tempSwG, color);
+and BUFG3(G[3], tempSwG, color);
 
-and BUFG0(G[0], tempSwG, hSyncWire, vSyncWire);
-and BUFG1(G[1], tempSwG, hSyncWire, vSyncWire);
-and BUFG2(G[2], tempSwG, hSyncWire, vSyncWire);
-and BUFG3(G[3], tempSwG, hSyncWire, vSyncWire);
-
-and BUFB0(B[0], tempSwB, hSyncWire, vSyncWire);
-and BUFB1(B[1], tempSwB, hSyncWire, vSyncWire);
-and BUFB2(B[2], tempSwB, hSyncWire, vSyncWire);
-and BUFB3(B[3], tempSwB, hSyncWire, vSyncWire); */
+and BUFB0(B[0], tempSwB, color);
+and BUFB1(B[1], tempSwB, color);
+and BUFB2(B[2], tempSwB, color);
+and BUFB3(B[3], tempSwB, color);*/
 
 wire [19:0] hCountWire, vCountWire;
 wire clk25, hSyncWire, vSyncWire, hSetWire, hResetWire, vSetWire, vResetWire;
@@ -106,6 +106,53 @@ sr_latch vLatch
 // Prop wires to sync pins
 buf bufHS(HS, hSyncWire);
 buf bufVS(VS, vSyncWire);
+
+/*wire colorSetWireH, colorResetWireH, colorSetWireV, colorResetWireV, colorSetWire, colorResetWire, colorWireV, colorWireH;
+twentyBitComparitor colorSetH
+(
+    .A(hCountWire),
+    .B(20'b00000000000010010001),
+    .F(colorSetWireH)
+);
+
+twentyBitComparitor colorResetH
+(
+    .A(hCountWire),
+    .B(20'b00000000001100010001),
+    .F(colorResetWireH)
+);
+
+twentyBitComparitor colorSetV
+(
+    .A(vCountWire),
+    .B(20'b00000110000011100001),
+    .F(colorSetWireV)
+);
+
+twentyBitComparitor colorResetV
+(
+    .A(vCountWire),
+    .B(20'b01100011110011100001),
+    .F(colorResetWireV)
+);
+
+sr_latch colorLatchH
+(
+    .S(colorSetWireH),
+    .R(colorResetWireH),
+    .Q(colorWireH),
+    .Q_Not()
+);
+
+sr_latch colorLatchV
+(
+    .S(colorSetWireV),
+    .R(colorResetWireV),
+    .Q(colorWireV),
+    .Q_Not()
+);
+
+and and1(color, colorWireV, colorWireH);*/
 
 // Output count addresses
 buf bufHCount(hCount, hCountWire);
